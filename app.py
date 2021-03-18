@@ -14,5 +14,16 @@ from PIL import Image
 root = Tk()
 root.title("Image Converter")
 
+browseButton = Button(root, text="Browse Files")
+browseButton.pack()
+
+extvar = StringVar(root)
+extvar.set('jpeg')
+
+fileType = OptionMenu(root, extvar, "jpeg", "png", "gif")
+fileType.pack()
+
+submitButton = Button(root, text="Submit")
+submitButton.pack()
 
 root.mainloop()
