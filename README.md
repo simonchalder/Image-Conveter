@@ -6,7 +6,7 @@ Project Start Date: March 2021
 
 GitHub Url: https://github.com/simonchalder/Image-Converter
 
-Dicogs Client Page: https://github.com/joalla/discogs_client
+Pillow library Page: https://github.com/python-pillow/Pillow
 
 Image Converter is a desktop GUI application for converting images between JPEG, PNG and GIF formats
 
