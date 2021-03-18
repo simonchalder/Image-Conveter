@@ -18,21 +18,25 @@ The user can now:
 
     Choose the file type to be converted to from a dropdown menu
 
+    Select if resizing is required and if so enter dimensions
+
     Choose the new file name and location from a file save dialog
 
 Currently the app supports conversion between the following filetypes:
 
     JPEG
 
-    PNG
+    PNG - Portable network Graphics
 
-    GIF
+    GIF - Graphics Interchange Format
+
+    BMP - Bitmap
+
+    TIFF - Tag Image File Format
 
 Issues / still to-do:
 
-Add more file types for conversion
-
-Add resize functionality for thumbnails / web images
+Possible support for producing icon (.ico) files
 
 Aesthetic changes and improvements to the GUI
 

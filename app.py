@@ -13,9 +13,11 @@ def browseFiles():
 
 def resizeActive():
     height.config(state=NORMAL)
+    width.config(state=NORMAL)
 
 def resizeDisabled():
     height.config(state=DISABLED)
+    width.config(state=NORMAL)
 
 def checkResize():
     cb = check_var1.get()
@@ -25,11 +27,23 @@ def checkResize():
         resizeDisabled()
 
 def submit():
-    ext = extvar.get()   
-    savePath = filedialog.asksaveasfilename(initialdir = "/", title = "Select File", filetypes = (("Text files", "*.txt*"),("all files", "*.*"))) + '.' + ext
-    outfile.save(savePath)
-    print("file conversion successful")
-    quit()
+    width_out = width.get()
+    height_out = height.get()
+
+    if check_var1.get() == 1 and width_out != '' and height_out != '':
+        size = (int(width_out), int(height_out))
+        ext = extvar.get()   
+        savePath = filedialog.asksaveasfilename(initialdir = "/", title = "Select File", filetypes = (("Text files", "*.txt*"),("all files", "*.*"))) + '.' + ext
+        outfile.thumbnail(size)
+        outfile.save(savePath)
+        print("file conversion successful")
+        quit()
+    else:   
+        ext = extvar.get()   
+        savePath = filedialog.asksaveasfilename(initialdir = "/", title = "Select File", filetypes = (("Text files", "*.txt*"),("all files", "*.*"))) + '.' + ext
+        outfile.save(savePath)
+        print("file conversion successful")
+        quit()
 
 root = Tk()
 root.title("Image Converter")
@@ -44,7 +58,7 @@ extvar.set('jpeg')
 fileTypeLabel = Label(root, text="Choose Required File Format")
 fileTypeLabel.grid(column=0, row=1, sticky=W, padx=20, pady=5)
 
-fileType = OptionMenu(root, extvar, "jpeg", "png", "gif")
+fileType = OptionMenu(root, extvar, "jpeg", "png", "gif", "bmp", "tiff")
 fileType.grid(column=1, row=1, sticky=W, padx=20, pady=5)
 
 check_var1 = IntVar()
@@ -55,14 +69,12 @@ widthLabel = Label(root, text="Width")
 widthLabel.grid(column=0, row=3, sticky=W, padx=20, pady=5)
 
 width = Entry(root, width=8, state=DISABLED)
-width.insert(0, "Width")
 width.grid(column=1, row=3, sticky=W, padx=20, pady=5)
 
 heightLabel = Label(root, text="Height")
 heightLabel.grid(column=0, row=4, sticky=W, padx=20, pady=5)
 
 height = Entry(root, width=8, state=DISABLED)
-height.insert(0, "Height")
 height.grid(column=1, row=4, sticky=W, padx=20, pady=5)
 
 submitButton = Button(root, text="Submit", width=25, command=submit)
