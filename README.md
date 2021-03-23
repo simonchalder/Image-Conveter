@@ -12,6 +12,8 @@ Image Converter is a desktop GUI application for converting images between JPEG,
 
 The app, still under development is written in Python using the PIL library for image manipulation and Tkinter for the GUI
 
+![44](https://user-images.githubusercontent.com/66743889/112196793-4b3cd300-8c03-11eb-8ccd-4e9a4613c887.png)
+
 The user can now:
 
     Select an image file for conversion using a file selection dialog - no need to type the filepath
